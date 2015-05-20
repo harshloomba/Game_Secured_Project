@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Scramble Game Builder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<script>
+function validateForm() {
+    
+    var output = null;
+    var emailid = document.forms["loginform"]["emailid"].value;
+    var pwd = document.forms["loginform"]["pwd"].value;
+    
+    var emailpattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;;
+    var passwordpattern = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).+$/; 
+if (emailid == null || emailid == "") {
+        alert("Emailid is mandatory");
+        return false;
+    }
+    else if(emailid.match(emailpattern)==null || emailid.match(emailpattern)=="") {
+        alert("Email should be of format xyz@xyz.com");
+        return false;
+    }    
+    else if (pwd==null || pwd=="") {
+        alert("password is mandatory");
+        return false;
+        }
+        else if (pwd.match(passwordpattern)==null || pwd.match(passwordpattern)=="") {
+        alert("Password format is wrong");
+        return false;
+    }        
+        
+}
+
+</script>
+        </head>
+
+        <body>
+<div id="header_container">
+  <div id="header"> <a href="#"><img src="images/games_logo_big.jpg" alt="Scramble Game Builders" title="Scramble Game Builders" border="0" /></a>
+    <ul>
+      <li><a href="login.html">Login</a> </li>
+      <li><a href="register.html">Register</a> </li>
+   
+      <li><a href="index.html">Home</a> </li>
+      <li class="contact"><a href="contactus.html">Contact</a></li>
+    </ul>
+    <h1></h1>
+  </div>
+</div>
+<div id="body">
+  <form action="../JSP/login.jsp" name ="loginform" onsubmit="return validateForm()" method="post" >
+    <label>Login: </label>
+    <input name="emailid" type="text" id="emailid" maxlength="22" value="Emailid" />
+    <input name="pwd" type="password" id="pwd" maxlength="15" value="Password" />
+    <input name="" type="submit" class="botton" value="RUN" />
+ 
+  </form>
+ 
+    
+</div>
+<div id="bodyfooterPan">
+   <h2>About Scramble Game Builders</h2>
+  <p>We build multi-purpose Games where you can build your vocabulary along with enjoyment. We believe games not only make you feel better by bursting your stress but they should also be informative in terms of education. So our sole purpose to make games are not only to relax you but also educate you through lighter learning tool. So here we have launched new Scramble Game.</p>
+</div>
+
+</body>
+</html>

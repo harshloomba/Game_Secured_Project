@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Scramble Game Builders</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<script>
+function validateForm() {
+    var result = null;
+    var emailid = document.forms["registrationform"]["emailid"].value;
+    var pnumber = document.forms["registrationform"]["phonenumber"].value;
+    var name = document.forms["registrationform"]["name"].value;
+    var pwd = document.forms["registrationform"]["pwd"].value;
+    var cpwd = document.forms["registrationform"]["cpwd"].value;        
+    var phonenopattern = /^\([2-9][0-9]{2}\) [1-9][0-9]{2}-[0-9]{4}$/;     
+    var namepattern = /^[A-Z][A-Z,a-z]+ [A-Z,a-z ]+$/;
+    var emailpattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var passwordpattern = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).+$/;
+
+    if (name==null || name=="") {
+        alert("Name is mandatory!!");
+        return false;
+    }
+    else if(name.match(namepattern)==null || name.match(namepattern)=="")
+    {
+        alert("Name can have charcters only and full name is required(First followed by space and Last)");
+        return false;
+    }
+    else if (emailid == null || emailid == "") {
+        alert("Emailid is mandatory");
+        return false;
+    }
+    else if (emailid.match(emailpattern)==null || emailid.match(emailpattern)=="") {
+        alert("Email should be of format xyz@xyz.com");
+        return false;
+    }    
+        else if (pnumber.match(phonenopattern)==null || pnumber.match(phonenopattern)=="") {
+        alert("Phone number should contain numbers in standard format (415) 696-0034");
+        return false;
+    }
+    
+        else if (pnumber==null || pnumber=="") {
+            alert("contact number is mandatory");
+            return false;
+            
+            }
+       
+        else if (pwd.match(passwordpattern)==null || pwd.match(passwordpattern)=="") {
+            alert("Password must follow given rules");
+            return false;
+        }
+        else if (cpwd==null || cpwd=="") {
+        alert("Confirm password is mandatory and should be same as of password");
+        return false;
+        
+        }
+    
+
+        else if (pwd==null || pwd=="") {
+            alert("password is madatory");
+            return false;
+            }
+        else if (cpwd != pwd) {
+        alert("Password and Confirm password must be equal");
+        return false;
+        
+        }
+             
+return true;            
+}
+
+
+</script>
+
+</head>
+<body>
+<div id="header_id">
+  <div id="header"> <a href="#" alt="Scramble Game Builders" title="Scramble Game Builders" border="0" /></a>
+    <ul>
+      <li><a href="login.html">Login</a> </li>
+      <li><a href="register.html">Register</a> </li>
+      
+      <li><a href="index.html">Home</a> </li>
+      
+      <li class="contact"><a href="ContactUs.html">Contact</a></li>
+    </ul>
+    <h1></h1>
+  </div>
+</div>
+<div >
+    <center>
+ <form name ="registrationform" action="../JSP/registration.jsp"  onsubmit="return validateForm()" method="post" >
+     <br></br>
+     <table>
+         <tr>
+             <td>
+         <label>*Full Name</label>
+</td>
+             <td>
+     <input name="name" type="text" maxlength="20" id="name" value="" />
+        </td>
+         </tr>
+ <tr>
+             <td>
+         
+         <label>*Email Id:</label>
+             </td>
+     <td>
+    <input name="emailid" type="text" maxlength="25" id="emailid" value=""/>
+     </td>
+ </tr>
+         <tr>
+             <td>
+    
+    <label>*Contact Number:</label>
+ 
+             </td>
+             <td>
+        <input name="phonenumber" type="text" maxlength="17" id="phonenumber" value="" />
+             </td>
+         </tr>
+         <tr>
+             <td>
+    <label>*Password:</label>
+             </td>
+             <td>
+    <input name="pwd" type="password" maxlength="15" id="pwd" value="" />
+    
+             </td>
+         </tr>
+         <tr>
+             <td>
+    <label>*Confirm Password :</label>
+ 
+             </td>
+             <td>
+    <input name="cpwd" type="password" maxlength="15" id="cpwd" value="" />
+             </td>
+         </tr>
+    
+         <tr>
+             <td>
+    <input name="" type="submit" class="botton" value="Register Me..!!" />
+             </td>
+             <td>
+    <input name="" type="reset" class="botton" value="Reset Form" />
+             </td>
+         </tr>
+         
+         <tr> <td colspan="2" ><label> Fields indicated by asterik are mandatory</label></td></tr>
+         
+         <tr> <td colspan="2" >Password Rules:
+                 <br></br>
+                 a) Should have two uppercase letters
+             <br></br>
+                 b) Should have one special case letter(!%$) and have 2 digits
+             <br></br>
+             <br></br>
+                  c) Should have 3 lower case letters
+             <br></br>
+                  d) Length should be greater than or equal to 8 
+             
+             </td></tr>
+ </table>
+     
+ </form>
+
+    </center>
+
+</div>
+
+</body>
+</html>
